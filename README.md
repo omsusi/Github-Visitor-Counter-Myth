@@ -50,11 +50,11 @@ I became obsessed with the idea of a Zero-Trust Counter. I didn't want the serve
 
 ## 🏗️ 2. System Design: The "Airport Customs" Analogy
 
-I modeled our architecture after a high-security international border. I didn't just want to see the visitor; we wanted to verify their "Passport."
+I modeled our architecture after a high-security international border. I didn't just want to see the visitor; I wanted to verify their "Passport."
 
 1. **The Passport (ETag Sync):** I hijacked the **HTTP ETag**. It acts as a session-less ID stored in the browser's cache, allowing us to recognize the same visitor without cookies (which GitHub blocks).
 2. **The Customs Gate (The SVG):** The visual "Badge" shown on the README.
-3. **The Interview (The CSS Font Trap):** This was the "Handshake." Inside the SVG, we hid a CSS `@font-face` request. If a real browser renders the image, it "leaks" a request to our server to download a font. **That leak is the proof of life.**
+3. **The Interview (The CSS Font Trap):** This was the "Handshake." Inside the SVG, I hid a CSS `@font-face` request. If a real browser renders the image, it "leaks" a request to our server to download a font. **That leak is the proof of life.**
 
 ---
 
