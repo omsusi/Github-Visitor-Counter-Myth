@@ -50,9 +50,9 @@ I became obsessed with the idea of a Zero-Trust Counter. I didn't want the serve
 
 ## 🏗️ 2. System Design: The "Airport Customs" Analogy
 
-We modeled our architecture after a high-security international border. We didn't just want to see the visitor; we wanted to verify their "Passport."
+I modeled our architecture after a high-security international border. I didn't just want to see the visitor; we wanted to verify their "Passport."
 
-1. **The Passport (ETag Sync):** We hijacked the **HTTP ETag**. It acts as a session-less ID stored in the browser's cache, allowing us to recognize the same visitor without cookies (which GitHub blocks).
+1. **The Passport (ETag Sync):** I hijacked the **HTTP ETag**. It acts as a session-less ID stored in the browser's cache, allowing us to recognize the same visitor without cookies (which GitHub blocks).
 2. **The Customs Gate (The SVG):** The visual "Badge" shown on the README.
 3. **The Interview (The CSS Font Trap):** This was the "Handshake." Inside the SVG, we hid a CSS `@font-face` request. If a real browser renders the image, it "leaks" a request to our server to download a font. **That leak is the proof of life.**
 
@@ -93,7 +93,7 @@ This documents the specific engineering attempts to bypass the sandbox and the t
 
 ### **Phase 1: The OS-ID Handshake (Font Fingerprinting)**
 
-* **The Method:** We used CSS to detect local font availability to identify the visitor's Operating System. By setting a `font-family` that prioritized `Segoe UI` (Windows) or `San Francisco` (macOS) and providing a remote URL fallback for each, the server would "log" which URL was requested.
+* **The Method:** I used CSS to detect local font availability to identify the visitor's Operating System. By setting a `font-family` that prioritized `Segoe UI` (Windows) or `San Francisco` (macOS) and providing a remote URL fallback for each, the server would "log" which URL was requested.
 * **The Result:** **FAILED.** * **Technical Reason:** GitHub Camo identifies external URLs inside CSS as a security leak. It performs a Regex-based sanitization that **strips `<style>` blocks entirely** before serving the image.
 
 ### **Phase 2: Successive Partitioned SVGs (The Chain)**
@@ -112,7 +112,7 @@ This documents the specific engineering attempts to bypass the sandbox and the t
 
 ## 🔬 5. Technical Appendix: The Camo Sandbox Rules
 
-Through forensic testing, we mapped the "Black Box" of GitHub's security image proxy.
+Through forensic testing, I mapped the "Black Box" of GitHub's security image proxy.
 
 | Rule ID | Targeted Element | Action Taken | Security Logic |
 | --- | --- | --- | --- |
